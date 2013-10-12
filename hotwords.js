@@ -54,6 +54,7 @@ var change = function (id) {
 };
 
 $(document).ready(function () {
+    
     //events
     $('#play').click(function () {
         words.sort(function () { return Math.random() - 0.5 });

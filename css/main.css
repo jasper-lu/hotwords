@@ -114,6 +114,32 @@ body {
 
 h1 {
     background-color:#C0392B;
+    float:left;
+    width:80%;
+    height:100px;
+    line-height:100px;
+    margin-bottom: 50px;
+    padding-left:25px;
+    transition:width ease-in .5s;
+}
+
+ul {
+    float:right;
+    padding:0px;
+    width:75%;
+}
+
+ul li {
+    display:block;
+    background-color:#F0863A;
+    height:100px;
+    width:100%;
+    padding:25px;
+    font-size:3em;
+    font-weight:bold;
+    margin-bottom:50px;
+    cursor:pointer;
+    transition:width ease-in .5s;
 }
 div {
     display:none;
@@ -149,28 +175,10 @@ div#end {
     background-color: #E13A31;
 }
 
-ul {
-    float:right;
-    padding:0px;
-    width:75%;
-}
-
-ul li {
-    display:block;
-    background-color:#F0863A;
-    height:100px;
-    width:100%;
-    padding:25px;
-    font-size:3em;
-    font-weight:bold;
-    margin-bottom:50px;
-    cursor:pointer;
-}
-
 h3 {
     position:absolute;
     text-align:center;
-    top:90%;
+    top:80%;
     right:0;
     left:0;
 }
