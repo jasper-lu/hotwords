@@ -44,7 +44,6 @@ var words = [
 ]
 
 var iter = 0;
-var teams = 2;
 var tick = false;
 var timer;
 var beepBeep = [false, false, false];
@@ -53,6 +52,7 @@ var change = function (id) {
     $('#' + id).toggleClass('current');
 };
 var playerNumb = 2;
+var rLength = 30;
 
 document.addEventListener('touchstart', function (e) {
     var id = $('.current').attr('id');
@@ -65,8 +65,16 @@ document.addEventListener('touchstart', function (e) {
         ++iter;
         $('.word').html(words[iter]);
         change('word');
+    } else if (id == 'endtemp') {
+        tick = true;
+        timer = playerNumb * rLength;
+        ++iter;
+        $('.word').html(words[iter]);
+        change('word');
     }
 });
+
+
 document.addEventListener('touchend', function (e) {
     var id = $('.current').attr('id');
     if (id == 'word') {
@@ -116,7 +124,7 @@ $(document).ready(function () {
 
     $('#start').click(function () {
         words.sort(function () { return Math.random() - 0.5 });
-        timer = teams * 5;
+        timer = playerNumb* rLength;
         change('green');
     })
     //beep beeps
@@ -150,9 +158,9 @@ $(document).ready(function () {
     });
 
     $('#end').click(function () {
-        tick = false;
         change('main');
     });
+
 
     $('h2').css('line-height', $(window).height() + 'px');
      
@@ -161,10 +169,17 @@ $(document).ready(function () {
     setInterval(function () {
         if (tick) {
             timer--;
-            if (timer == 0) {
-                change('end');
-                tick = false;
-                alarm.play();
+            if (timer <= 0) {
+                if (playerNumb == 2) {
+                    change('end');
+                    tick = false;
+                    alarm.play();
+                } else {
+                    playerNumb--;
+                    change('endtemp');
+                    tick = false;
+                    alarm.play();
+                }
             }
         }
     }, 1000);
