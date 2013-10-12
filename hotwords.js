@@ -45,27 +45,55 @@ var words = [
 
 var iter = 0;
 var teams = 2;
-var timer = 2 * 45;
+var tick = false;
+var timer = teams * 5;
 
-//starting will shuffle the words
-$('#play').click(function() {
-    words.sort( function() { return Math.random() - 0.5});
+var change = function (id) {
+    $('.current').toggleClass('current');
+    $('#' + id).toggleClass('current');
+};
+
+$(document).ready(function () {
+    //events
+    $('#play').click(function () {
+        words.sort(function () { return Math.random() - 0.5 });
+        change('green');
+    });
+
+    $('#green').mousedown(function () {
+        tick = true;
+        $('.word').html(words[iter]);
+        change('word');
+    });
+
+    $('#word').mouseup(function () {
+        change('progress');
+    });
+
+    $('#progress').click(function () {
+        tick = false;
+        change('reveal');
+    });
+
+    $('#reveal').mousedown(function () {
+        ++iter;
+        $('.word').html(words[iter]);
+        tick = true;
+        change('word');
+    });
+
+    $('#end').click(function () {
+        change('main');
+    });
+
+    $('h2').css('line-height', $(window).height() + 'px');
+     
+    //timer
+
+    setInterval(function () {
+        if (tick)
+            timer--;
+        if (timer == 0)
+            change('end');
+    }, 1000);
 });
-
-//displays the word
-$('.h2').append(words[iter]);
-
-//next button moves the words
-$('#next').click(function () {
-    ++iter;
-});
-
-//timer
-setInterval(function () {
-    timer--;
-    if (timer == 0)
-        window.location = "endgame.html";
-}, 1000);
-
-
-
