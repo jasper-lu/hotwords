@@ -112,13 +112,50 @@ body {
     /*background-color:TURQUOISE;*/
 }
 
-h1 {
+#wrapper {
+    padding:0px;
+    display:block;
+}
+
+.arrow-up {
+    width: 0;
+    height: 0;
+    border-left: 60px solid transparent;
+    border-right: 60px solid transparent;
+    border-top: 60px solid red;
+    display:block;
+}
+
+.arrow-down {
+    width: 0;
+    height: 0;
+    border-left: 60px solid transparent;
+    border-right: 60px solid transparent;
+    border-bottom: 60px solid red;
+    display:block;
+}
+
+.bigBotMargin {
+    margin-bottom: 100px;
+}
+
+h1.numb {
+    color:green;
+    float:left;
+    width:100%;
+    font-size:150px;
+    font-weight:bold;
+    height:150px;
+    text-align:center;
+    line-height:150px;
+}
+
+h1.header {
     background-color:#C0392B;
     float:left;
     width:80%;
     height:100px;
     line-height:100px;
-    margin-bottom: 50px;
     padding-left:25px;
     transition:width ease-in .5s;
 }
@@ -146,13 +183,15 @@ div {
     position:absolute;
     height:100%;
     width:100%;
+    
+    border:10px solid white;
 }
 .current{
     display:block;
 }
 
-div#main{
-    background-color: white;
+div#main, div#players{ 
+    background: url('../geometry.png') repeat;
 }
 
 div#green {
@@ -165,6 +204,10 @@ div#word {
 
 div#progress {
     background-color: BLACK;
+}
+
+div.blanca {
+    background-color: WHITE !important; 
 }
 
 div#reveal {
