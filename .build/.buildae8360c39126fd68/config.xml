@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns:tizen="http://tizen.org/ns/widgets" xmlns="http://www.w3.org/ns/widgets" id="http://yourdomain/hotWords" version="1.0.0" viewmodes="maximized">
+    <tizen:application id="aUrAJwMAZz.hotWords" package="aUrAJwMAZz" required_version="2.2"/>
+    <author email="thejasperlu@gmail.com">Tim Sit</author>
+    <content src="index.html"/>
+    <icon src="icon.png"/>
+    <name>HotWords</name>
+</widget>
